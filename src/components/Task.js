@@ -3,7 +3,9 @@ import { TaskListContext } from '../contexts/TaskListContext'
 
 const Task = ({ task }) => {
   const { removeTask, findItem } = useContext(TaskListContext)
+
   console.log(`TaskListContext + ${JSON.stringify(task)}`)
+  
   return (
     
     <li className="list-item">

@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import { TaskListContext } from '../contexts/TaskListContext'
 
 const TaskForm = () => {
-  const { addTask, clearList, editTask, editItem } = useContext(TaskListContext)
+  const { addTask,handleFilter , clearList, editTask, editItem } = useContext(TaskListContext)
   const [title, setTitle] = useState('')
 
   const handleSubmit = e => {
@@ -10,6 +10,7 @@ const TaskForm = () => {
     if (!editItem) {
       addTask(title)
       setTitle('')
+
     } else {
       editTask(title, editItem.id)
 
@@ -18,11 +19,11 @@ const TaskForm = () => {
 
   const handleChange = e => {
     setTitle(e.target.value)
+    // console.log("input" + (e.target.value))
+
   }
-  const handleFilter = e => {
-    e.preventDefault();
-    setTitle(e.target.value)
-  }
+
+
 
   // if (title.length > 0) { nba = nba.filter((i) => {return i.name.match(title);})};
 
@@ -52,7 +53,8 @@ const TaskForm = () => {
         </button>
         <button className="btn clear-btn" onClick={clearList}>
           Clear
-        </button>        <button className="btn clear-btn" onClick={handleFilter}>
+        </button>        
+        <button className="btn clear-btn" onClick={handleFilter}>
           Filter
         </button>
       </div>

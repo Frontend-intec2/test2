@@ -11,6 +11,7 @@ const TaskList = () => {
         <ul className="list">
           {tasks.map(task => {
             return <Task task={task} key={task.id} />;
+            
           })}
         </ul>
       ) : (
